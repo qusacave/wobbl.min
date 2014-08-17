@@ -1,0 +1,37 @@
+body {
+  margin     : auto;
+  padding    : 0px 0px 0px 0px;
+  background : #000000;
+  color      : #FFFFFF;
+  text-align : center;
+  font-family : 'Noteworthy', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo';
+}
+
+#print_title {
+  margin-top : 4px;
+  text-align : center;
+  font-size  : 32px;
+  color      : #f7f7f7;
+  text-shadow: 0px 0px 10px black;
+}
+
+#print_lx {
+  margin-top : 6px;
+  text-align : center;
+  font-size  : 16px;
+  color      : white;
+  text-shadow: 1px 1px 3px black;
+}
+
+#mButton {
+  margin-top : 10px;
+}
+
+#imgButton {
+  width : 25%;
+  height : 25%; 
+}
+
+#keys {
+  margin-top : 14px;
+}

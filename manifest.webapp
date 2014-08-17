@@ -1,0 +1,12 @@
+{
+    "version"    : "0.1",
+    "name"       : "wobbl.min",
+    "description": "wobbl.min",
+    "launch_path": "/index.html",
+    "icons" : {"128" : "/resource/icon.png"},
+    "developer"  : {
+        "name" : "qusacave",
+        "url"  : ""
+    },
+    "installs_allowed_from": ["*"]
+}
