@@ -4,6 +4,7 @@
     "description": "wobbl.min",
     "launch_path": "/index.html",
     "icons" : {"128" : "/resource/icon.png"},
+    "orientation": "portrait-primary",
     "developer"  : {
         "name" : "qusacave",
         "url"  : ""

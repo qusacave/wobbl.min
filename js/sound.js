@@ -114,5 +114,5 @@ changePitch = function( key ){
 //------------------------------------------------------------------------------
 setMute = function( mute ){
     if(mute == true) gGainNode.gain.value = 0;
-    else gGainNode.gain.value = 1;
+    else gGainNode.gain.value = 0.2;
 };
