@@ -70,13 +70,14 @@ keys = function( baseWidth ){
     svg.setAttribute( "height", baseWidth*3 );
     var circle = document.createElementNS("http://www.w3.org/2000/svg" , "circle");
     circle.setAttribute( "cx", baseWidth*0.5 );
-    circle.setAttribute( "cy", baseWidth*0.5 );  
+    circle.setAttribute( "cy", baseWidth*0.5 );
     circle.setAttribute( "r", baseWidth*0.45 );
-    svg.appendChild(circle);   
+    svg.appendChild(circle);
 }
 */
 //  画面幅に合わせてボタンの大きさを変えられるようにしたかった
 //  完全にブラウザで表示したとき用
+var onclickPos = [0, 0];
 var baseWidth;
 updateWindow = function(){
     var wd = window.innerWidth;
@@ -103,14 +104,27 @@ keys = function(){
             var x = keyWidth*0.5 + keyWidth*j;
             var y = keyWidth*0.5 + keyWidth*i;
             ctx.arc(x, y, keyWidth*0.45, 0, Math.PI*2, true);
-            grad = ctx.createRadialGradient(x, y, keyWidth*0.38, x, y, keyWidth*0.44);
-            grad.addColorStop(0, "#f7f7f7");
-            grad.addColorStop(0.5, "#e0e0e0");
-            grad.addColorStop(0.75, "#a0a0a0");
-            grad.addColorStop(1, "rgba(128, 128, 128, 0)");
-            ctx.fillStyle = grad;
-            ctx.fill();
-            ctx.fillStyle = "#c0c0c0";
+
+            if(onclickPos[0]==i && onclickPos[1]==j){
+                grad = ctx.createRadialGradient(x, y, keyWidth*0.38, x, y, keyWidth*0.44);
+                grad.addColorStop(0, "#f7f7f7");
+                grad.addColorStop(0.5, "#e0e0e0");
+                grad.addColorStop(0.75, "#a0a0a0");
+                grad.addColorStop(1, "rgba(128, 128, 128, 0)");
+                ctx.fillStyle = grad;
+                ctx.fill();
+                ctx.fillStyle = "#c0c0c0";
+            }
+            else{
+                grad = ctx.createRadialGradient(x, y, keyWidth*0.38, x, y, keyWidth*0.44);
+                grad.addColorStop(0, "#c7c7c7");
+                grad.addColorStop(0.5, "#b0b0b0");
+                grad.addColorStop(0.75, "#707070");
+                grad.addColorStop(1, "rgba(128, 128, 128, 0)");
+                ctx.fillStyle = grad;
+                ctx.fill();
+                ctx.fillStyle = "#909090";
+            }
             ctx.fillText(pString[4*i+j], x, y+3);
         }
     }
@@ -127,6 +141,8 @@ keys = function(){
                 if(j*keyWidth<=mouseX && mouseX<(j+1)*keyWidth){
                     if(i*keyWidth<=mouseY && mouseY<(i+1)*keyWidth){
                         changePitch( 4*i+j );
+                        onclickPos = [i, j];
+                        updateWindow();
                     }
                 }
             }
